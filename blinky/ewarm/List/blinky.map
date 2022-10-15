@@ -1,0 +1,180 @@
+###############################################################################
+#
+# IAR ELF Linker V8.50.6.265/W32 for ARM                  05/Jan/2021  22:47:19
+# Copyright 2007-2020 IAR Systems AB.
+#
+#    Output file  =
+#        C:\Users\moham\Desktop\ASU Docs\Microcontrollers\Assignment\lec 8 -
+#        Step 2 - systick - Blinky - TivaWare\blinky\ewarm\Exe\blinky.out
+#    Map file     =
+#        C:\Users\moham\Desktop\ASU Docs\Microcontrollers\Assignment\lec 8 -
+#        Step 2 - systick - Blinky - TivaWare\blinky\ewarm\List\blinky.map
+#    Command line =
+#        -f C:\Users\moham\AppData\Local\Temp\EW2453.tmp
+#        ("C:\Users\moham\Desktop\ASU Docs\Microcontrollers\Assignment\lec 8 -
+#        Step 2 - systick - Blinky - TivaWare\blinky\ewarm\Obj\blinky.o"
+#        "C:\Users\moham\Desktop\ASU Docs\Microcontrollers\Assignment\lec 8 -
+#        Step 2 - systick - Blinky - TivaWare\driverlib\ewarm\Exe\driverlib.a"
+#        "C:\Users\moham\Desktop\ASU Docs\Microcontrollers\Assignment\lec 8 -
+#        Step 2 - systick - Blinky - TivaWare\blinky\ewarm\Obj\startup_ewarm.o"
+#        --redirect _Printf=_PrintfTiny --redirect _Scanf=_ScanfSmallNoMb
+#        --no_out_extension -o "C:\Users\moham\Desktop\ASU
+#        Docs\Microcontrollers\Assignment\lec 8 - Step 2 - systick - Blinky -
+#        TivaWare\blinky\ewarm\Exe\blinky.out" --map
+#        "C:\Users\moham\Desktop\ASU Docs\Microcontrollers\Assignment\lec 8 -
+#        Step 2 - systick - Blinky - TivaWare\blinky\ewarm\List\blinky.map"
+#        --config "C:\Users\moham\Desktop\ASU
+#        Docs\Microcontrollers\Assignment\lec 8 - Step 2 - systick - Blinky -
+#        TivaWare\blinky\blinky.icf" --semihosting --entry __iar_program_start
+#        --vfe --text_out locale)
+#
+###############################################################################
+
+*******************************************************************************
+*** RUNTIME MODEL ATTRIBUTES
+***
+
+CppFlavor       = *
+__SystemLibrary = DLib
+__dlib_version  = 6
+
+
+*******************************************************************************
+*** HEAP SELECTION
+***
+
+The basic heap was selected because some modules are built with
+size limitations (and not runtime checking), and --advanced_heap
+was not specified.
+
+
+*******************************************************************************
+*** PLACEMENT SUMMARY
+***
+
+"A0":  place at start of [from 0x0 to 0x3'ffff] { ro section .intvec };
+"P1":  place in [from 0x0 to 0x3'ffff] { ro };
+define block HEAP with size = 0, alignment = 8 { };
+"P2":  place in [from 0x2000'0000 to 0x2000'7fff] { rw, block HEAP };
+do not initialize { section .noinit };
+
+No sections matched the following patterns:
+
+  section VTABLE  in "A1"
+
+
+  Section  Kind         Address   Size  Object
+  -------  ----         -------   ----  ------
+"A0":                            0x26c
+  .intvec  const            0x0  0x26c  startup_ewarm.o [1]
+                        - 0x26c  0x26c
+
+"P1":                             0xec
+  .text    ro code        0x26c   0x54  blinky.o [1]
+  .text    ro code        0x2c0   0x22  fpinit_M.o [3]
+  .text    ro code        0x2e4   0x1e  startup_ewarm.o [1]
+  .text    ro code        0x302    0xc  cstartup_M.o [4]
+  .text    ro code        0x310   0x1e  cmain.o [4]
+  .text    ro code        0x32e    0x4  low_level_init.o [2]
+  .text    ro code        0x332    0x4  exit.o [2]
+  .text    ro code        0x338    0xa  cexit.o [4]
+  .text    ro code        0x344   0x14  exit.o [5]
+                        - 0x358   0xec
+
+"P2":                            0x200
+  .noinit  uninit   0x2000'0000  0x200  startup_ewarm.o [1]
+                  - 0x2000'0200  0x200
+
+Unused ranges:
+
+         From           To      Size
+         ----           --      ----
+        0x358     0x3'ffff  0x3'fca8
+  0x2000'0200  0x2000'7fff    0x7e00
+
+
+
+*******************************************************************************
+*** MODULE SUMMARY
+***
+
+    Module            ro code  ro data  rw data
+    ------            -------  -------  -------
+command line/config:
+    -------------------------------------------
+    Total:
+
+C:\Users\moham\Desktop\ASU Docs\Microcontrollers\Assignment\lec 8 - Step 2 - systick - Blinky - TivaWare\blinky\ewarm\Obj: [1]
+    blinky.o               84
+    startup_ewarm.o        30      620      512
+    -------------------------------------------
+    Total:                114      620      512
+
+dl7M_tln.a: [2]
+    exit.o                  4
+    low_level_init.o        4
+    -------------------------------------------
+    Total:                  8
+
+m7M_tls.a: [3]
+    fpinit_M.o             34
+    -------------------------------------------
+    Total:                 34
+
+rt7M_tl.a: [4]
+    cexit.o                10
+    cmain.o                30
+    cstartup_M.o           12
+    -------------------------------------------
+    Total:                 52
+
+shb_l.a: [5]
+    exit.o                 20
+    -------------------------------------------
+    Total:                 20
+
+    Gaps                    8
+-----------------------------------------------
+    Grand Total:          236      620      512
+
+
+*******************************************************************************
+*** ENTRY LIST
+***
+
+Entry                     Address   Size  Type      Object
+-----                     -------   ----  ----      ------
+?main                       0x311         Code  Gb  cmain.o [4]
+FaultISR                    0x2ff    0x2  Code  Lc  startup_ewarm.o [1]
+IntDefaultHandler           0x301    0x2  Code  Lc  startup_ewarm.o [1]
+NmiSR                       0x2fd    0x2  Code  Lc  startup_ewarm.o [1]
+Region$$Table$$Base           0x0          --   Gb  - Linker created -
+Region$$Table$$Limit          0x0          --   Gb  - Linker created -
+ResetISR                    0x2e5   0x12  Code  Gb  startup_ewarm.o [1]
+__cmain                     0x311         Code  Gb  cmain.o [4]
+__exit                      0x345   0x14  Code  Gb  exit.o [5]
+__iar_init_vfp              0x2c1         Code  Gb  fpinit_M.o [3]
+__iar_program_start         0x303         Code  Gb  cstartup_M.o [4]
+__low_level_init            0x32f    0x4  Code  Gb  low_level_init.o [2]
+__vector_table                0x0  0x26c  Data  Gb  startup_ewarm.o [1]
+_call_main                  0x31d         Code  Gb  cmain.o [4]
+_exit                       0x339         Code  Gb  cexit.o [4]
+_main                       0x32b         Code  Gb  cmain.o [4]
+exit                        0x333    0x4  Code  Gb  exit.o [2]
+main                        0x26d   0x30  Code  Gb  blinky.o [1]
+pui32Stack            0x2000'0000  0x200  Data  Lc  startup_ewarm.o [1]
+systickHandler              0x29d    0xc  Code  Gb  blinky.o [1]
+
+
+[1] = C:\Users\moham\Desktop\ASU Docs\Microcontrollers\Assignment\lec 8 - Step 2 - systick - Blinky - TivaWare\blinky\ewarm\Obj
+[2] = dl7M_tln.a
+[3] = m7M_tls.a
+[4] = rt7M_tl.a
+[5] = shb_l.a
+
+  236 bytes of readonly  code memory
+  620 bytes of readonly  data memory
+  512 bytes of readwrite data memory
+
+Errors: none
+Warnings: none

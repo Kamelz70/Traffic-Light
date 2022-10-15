@@ -1,0 +1,218 @@
+###############################################################################
+#
+# IAR ELF Linker V8.50.6.265/W32 for ARM                  15/Jan/2021  22:40:36
+# Copyright 2007-2020 IAR Systems AB.
+#
+#    Output file  =
+#        C:\Users\ag\Downloads\project finall\Debug\Exe\Traffic lights.out
+#    Map file     =
+#        C:\Users\ag\Downloads\project finall\Debug\List\Traffic lights.map
+#    Command line =
+#        -f C:\Users\ag\AppData\Local\Temp\EWA208.tmp
+#        ("C:\Users\ag\Downloads\project finall\Debug\Obj\gpio.o"
+#        "C:\Users\ag\Downloads\project finall\Debug\Obj\main.o"
+#        "C:\Users\ag\Downloads\project finall\Debug\Obj\startup_ewarm.o"
+#        "C:\Users\ag\Downloads\project finall\Debug\Obj\timers.o"
+#        "C:\Users\ag\Downloads\project finall\Debug\Obj\UART.o"
+#        --no_out_extension -o "C:\Users\ag\Downloads\project
+#        finall\Debug\Exe\Traffic lights.out" --redirect
+#        _Printf=_PrintfFullNoMb --redirect _Scanf=_ScanfFullNoMb --map
+#        "C:\Users\ag\Downloads\project finall\Debug\List\Traffic lights.map"
+#        --config "C:\Program Files (x86)\IAR Systems\Embedded Workbench
+#        8.4\arm\config\linker\TexasInstruments\TM4C123GH6.icf" --semihosting
+#        --entry __iar_program_start --vfe --text_out locale)
+#
+###############################################################################
+
+*******************************************************************************
+*** RUNTIME MODEL ATTRIBUTES
+***
+
+CppFlavor       = *
+__SystemLibrary = DLib
+__dlib_version  = 6
+
+
+*******************************************************************************
+*** HEAP SELECTION
+***
+
+The basic heap was selected because some modules are built with
+size limitations (and not runtime checking), and --advanced_heap
+was not specified.
+
+
+*******************************************************************************
+*** PLACEMENT SUMMARY
+***
+
+"A0":  place at address 0x0 { ro section .intvec };
+"P1":  place in [from 0x0 to 0x3'ffff] { ro };
+define block CSTACK with size = 4K, alignment = 8 { };
+define block HEAP with size = 8K, alignment = 8 { };
+"P2":  place in [from 0x2000'0000 to 0x2000'7fff] {
+          rw, block CSTACK, block HEAP };
+do not initialize { rw section .noinit };
+
+  Section          Kind         Address   Size  Object
+  -------          ----         -------   ----  ------
+"A0":                                    0x26c
+  .intvec          const            0x0  0x26c  startup_ewarm.o [1]
+                                - 0x26c  0x26c
+
+"P1":                                    0x8b4
+  .text            ro code        0x26c  0x330  main.o [1]
+  .text            ro code        0x59c  0x1cc  gpio.o [1]
+  .text            ro code        0x768  0x138  timers.o [1]
+  .text            ro code        0x8a0   0xc2  UART.o [1]
+  .text            ro code        0x962   0x3a  zero_init3.o [3]
+  .rodata          const          0x99c   0x30  main.o [1]
+  .rodata          const          0x9cc   0x30  main.o [1]
+  .text            ro code        0x9fc   0x28  data_init.o [3]
+  .iar.init_table  const          0xa24   0x10  - Linker created -
+  .text            ro code        0xa34   0x1e  startup_ewarm.o [1]
+  .text            ro code        0xa52    0xc  cstartup_M.o [3]
+  .text            ro code        0xa60   0x1e  cmain.o [3]
+  .text            ro code        0xa7e    0x4  low_level_init.o [2]
+  .text            ro code        0xa82    0x4  exit.o [2]
+  .text            ro code        0xa88    0xa  cexit.o [3]
+  .text            ro code        0xa94   0x14  exit.o [4]
+  .rodata          const          0xaa8   0x1c  gpio.o [1]
+  .rodata          const          0xac4   0x1c  gpio.o [1]
+  .rodata          const          0xae0   0x10  main.o [1]
+  .rodata          const          0xaf0   0x10  main.o [1]
+  .rodata          const          0xb00   0x10  main.o [1]
+  .rodata          const          0xb10   0x10  main.o [1]
+  .rodata          const          0xb20    0x0  zero_init3.o [3]
+                                - 0xb20  0x8b4
+
+"P2", part 1 of 2:                         0x4
+  .bss             zero     0x2000'0000    0x1  main.o [1]
+                          - 0x2000'0001    0x1
+
+"P2", part 2 of 2:                       0x200
+  .noinit          uninit   0x2000'0004  0x200  startup_ewarm.o [1]
+                          - 0x2000'0204  0x200
+
+Unused ranges:
+
+         From           To      Size
+         ----           --      ----
+        0xb20     0x3'ffff  0x3'f4e0
+  0x2000'0204  0x2000'7fff    0x7dfc
+
+
+*******************************************************************************
+*** INIT TABLE
+***
+
+          Address      Size
+          -------      ----
+Zero (__iar_zero_init3)
+    1 destination range, total size 0x1:
+          0x2000'0000   0x1
+
+
+
+*******************************************************************************
+*** MODULE SUMMARY
+***
+
+    Module            ro code  ro data  rw data
+    ------            -------  -------  -------
+command line/config:
+    -------------------------------------------
+    Total:
+
+C:\Users\ag\Downloads\project finall\Debug\Obj: [1]
+    UART.o                194
+    gpio.o                460       56
+    main.o                816      160        1
+    startup_ewarm.o        30      620      512
+    timers.o              312
+    -------------------------------------------
+    Total:              1'812      836      513
+
+dl7M_tln.a: [2]
+    exit.o                  4
+    low_level_init.o        4
+    -------------------------------------------
+    Total:                  8
+
+rt7M_tl.a: [3]
+    cexit.o                10
+    cmain.o                30
+    cstartup_M.o           12
+    data_init.o            40
+    zero_init3.o           58
+    -------------------------------------------
+    Total:                150
+
+shb_l.a: [4]
+    exit.o                 20
+    -------------------------------------------
+    Total:                 20
+
+    Gaps                    6
+    Linker created                  16
+-----------------------------------------------
+    Grand Total:        1'996      852      513
+
+
+*******************************************************************************
+*** ENTRY LIST
+***
+
+Entry                       Address   Size  Type      Object
+-----                       -------   ----  ----      ------
+.iar.init_table$$Base         0xa24          --   Gb  - Linker created -
+.iar.init_table$$Limit        0xa34          --   Gb  - Linker created -
+?main                         0xa61         Code  Gb  cmain.o [3]
+FaultISR                      0xa4f    0x2  Code  Lc  startup_ewarm.o [1]
+Init_PortB                    0x607   0x2c  Code  Gb  gpio.o [1]
+Init_PortC                    0x633   0x2c  Code  Gb  gpio.o [1]
+Init_PortF                    0x59d   0x6a  Code  Gb  gpio.o [1]
+IntDefaultHandler             0xa51    0x2  Code  Lc  startup_ewarm.o [1]
+NmiSR                         0xa4d    0x2  Code  Lc  startup_ewarm.o [1]
+PortFHandler                  0x65f   0x9e  Code  Gb  gpio.o [1]
+Region$$Table$$Base           0xa24          --   Gb  - Linker created -
+Region$$Table$$Limit          0xa34          --   Gb  - Linker created -
+ResetISR                      0xa35   0x12  Code  Gb  startup_ewarm.o [1]
+RestoreState                  0x3f5  0x128  Code  Gb  main.o [1]
+TIMER0_Delay                  0x7f1   0x2e  Code  Gb  timers.o [1]
+TIMER0_Init                   0x769   0x46  Code  Gb  timers.o [1]
+TIMER1_Delay                  0x821   0x1a  Code  Gb  timers.o [1]
+TIMER1_Init                   0x7af   0x40  Code  Gb  timers.o [1]
+Timer0Handler                 0x83b   0x14  Code  Gb  timers.o [1]
+Timer1Handler                 0x84f    0xe  Code  Gb  timers.o [1]
+TrafficLights                 0x51d   0x5a  Code  Gb  main.o [1]
+TrafficState            0x2000'0000    0x1  Data  Gb  main.o [1]
+UART0_Init                    0x8a1   0x68  Code  Gb  UART.o [1]
+UART0_SendChar                0x909   0x10  Code  Gb  UART.o [1]
+__cmain                       0xa61         Code  Gb  cmain.o [3]
+__exit                        0xa95   0x14  Code  Gb  exit.o [4]
+__iar_data_init3              0x9fd   0x28  Code  Gb  data_init.o [3]
+__iar_program_start           0xa53         Code  Gb  cstartup_M.o [3]
+__iar_zero_init3              0x963   0x3a  Code  Gb  zero_init3.o [3]
+__low_level_init              0xa7f    0x4  Code  Gb  low_level_init.o [2]
+__vector_table                  0x0  0x26c  Data  Gb  startup_ewarm.o [1]
+_call_main                    0xa6d         Code  Gb  cmain.o [3]
+_exit                         0xa89         Code  Gb  cexit.o [3]
+_main                         0xa7b         Code  Gb  cmain.o [3]
+exit                          0xa83    0x4  Code  Gb  exit.o [2]
+main                          0x26d  0x188  Code  Gb  main.o [1]
+printString                   0x94d   0x16  Code  Gb  UART.o [1]
+pui32Stack              0x2000'0004  0x200  Data  Lc  startup_ewarm.o [1]
+
+
+[1] = C:\Users\ag\Downloads\project finall\Debug\Obj
+[2] = dl7M_tln.a
+[3] = rt7M_tl.a
+[4] = shb_l.a
+
+  1'996 bytes of readonly  code memory
+    852 bytes of readonly  data memory
+    513 bytes of readwrite data memory
+
+Errors: none
+Warnings: none
